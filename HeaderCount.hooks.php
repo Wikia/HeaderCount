@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\SlotRecord;
 
 class HeaderCountHooks {
     public static function setupParser(Parser &$parser) {
@@ -24,7 +24,7 @@ class HeaderCountHooks {
             return "'''Could not retrieve revision from $title.'''";
         }
 
-        $content = $rev->getContent(RevisionRecord::RAW);
+        $content = $rev->getContent(SlotRecord::MAIN);
         if ($content === null) {
             return "'''Could not extract text from $title.'''";
         }
