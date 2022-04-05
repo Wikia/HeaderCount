@@ -18,8 +18,8 @@ class HeaderCountHooks {
             }
         }
 
-		$rev = MediaWikiServices::getInstance()
-			->getRevisionLookup()->getRevisionByTitle($title);
+        $rev = MediaWikiServices::getInstance()
+            ->getRevisionLookup()->getRevisionByTitle($title);
         if ($rev === null) {
             return "'''Could not retrieve revision from $title.'''";
         }
