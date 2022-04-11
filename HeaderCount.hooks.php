@@ -29,7 +29,8 @@ class HeaderCountHooks {
             return "'''Could not extract text from $title.'''";
         }
 
-        $level = empty($level) ? 2 : intval($level);
+        $level = empty($level) || !(($level >= 1) && ($level <= 6))
+			? 2 : intval($level);
         $header = str_repeat('=', $level);
         $serialized = $content->serialize();
         $count = preg_match_all("/^$header" . "[^=]+" . "$header$/m", $serialized);
