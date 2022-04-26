@@ -35,6 +35,6 @@ class HeaderCountHooks {
         $serialized = $content->serialize();
         $count = preg_match_all("/^$header" . "[^=]+" . "$header$/m", $serialized);
 
-        return $count == false ? '0<!-- WARNING: LST loop detected -->' : $count;
+        return $count == false ? '0<!-- No headers found -->' : $count;
     }
 }
